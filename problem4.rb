@@ -7,17 +7,26 @@ class Problem4
   def find_largest_palendrome
     start = Time.now
     get_out = false
-    999.step(100, -1) do |i|
-      999.step(100, -1) do |j|
-        if palindrome(i*j)
-          puts i*j
-          puts "Time: " + (Time.now - start).to_s
-          get_out = true
+    bottom = 100
+    temp_largest = 0
+
+    999.step(bottom, -1) do |i|
+      999.step(bottom, -1) do |j|
+        product = i*j
+        if palindrome(product)
+          if product > temp_largest
+            temp_largest = product
+            bottom = i<j ? i : j
+          else
+            get_out = true
+          end
           break
         end
       end
       break if get_out
     end
+    puts "Time: " + (Time.now - start).to_s
+    puts temp_largest.to_s
   end
 
   def palindrome(number)
