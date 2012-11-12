@@ -5,19 +5,16 @@ class Problem3
   end
 
   def prime_factorization(number)
-    second = false
-    i = 2
-
-    while true
+    start = Time.now
+    for i in 2..(number/2).to_i
       if number % i == 0
         number = number / i
         puts number.to_s + " " + i.to_s
-      elsif second
-        i += 0
-      else
+      elsif number == 1
         break
       end
     end
+    puts "Time: " + (Time.now - start).to_s
   end
 end
 
