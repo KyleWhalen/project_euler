@@ -1,4 +1,6 @@
 class Problem3
+  #What is the largest prime factor of the number 600851475143 ?
+
   def initialize
     number = 600851475143
     prime_factorization(number)
